@@ -1,0 +1,194 @@
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.loading-spinner {
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-xl);
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.card-header h2 {
+  margin: 0;
+}
+
+.card-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.kanban-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+}
+
+.kanban-column {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  padding: var(--space-md);
+  background: var(--color-surface-alt);
+}
+
+.kanban-title {
+  margin: 0 0 var(--space-sm) 0;
+  font-weight: var(--font-weight-semibold);
+}
+
+.task-card {
+  list-style: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  margin-bottom: var(--space-sm);
+}
+
+.task-card strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.task-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.task-card.priority-high {
+  border-color: var(--color-danger);
+}
+.task-card.priority-medium {
+  border-color: var(--color-warning);
+}
+.task-card.priority-low {
+  border-color: var(--color-accent);
+}
+
+.task-meta {
+  display: block;
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.empty-state {
+  color: var(--color-text-muted);
+}
+
+.api-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.api-section {
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.api-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.api-row code {
+  font-family: var(--font-family-mono);
+  color: var(--color-accent);
+}
+
+.api-row p {
+  margin: 0;
+  grid-column: 1 / -1;
+  color: var(--color-text-muted);
+}
+
+.api-alert {
+  margin: 0 0 var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+}
+
+.api-alert.error {
+  border-color: var(--color-danger);
+}
+
+.method-badge {
+  padding: var(--space-xxs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: #0f172a;
+  justify-self: start;
+  text-transform: uppercase;
+}
+
+.method-get {
+  background: var(--color-success);
+}
+.method-post {
+  background: var(--color-accent);
+}
+.method-put {
+  background: var(--color-warning);
+}
+.method-patch {
+  background: var(--color-accent-hover);
+}
+.method-delete {
+  background: var(--color-danger);
+  color: #fff;
+}
+
+.task-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.task-actions button {
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--space-xs) var(--space-lg);
+  background: var(--color-accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.task-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

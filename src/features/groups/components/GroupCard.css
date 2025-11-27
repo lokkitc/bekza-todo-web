@@ -1,0 +1,123 @@
+.group-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: box-shadow 0.2s ease;
+}
+
+.group-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.group-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.group-card-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+.group-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.group-card-title h3 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.group-card-actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.button-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  font-size: var(--font-size-md);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.button-icon:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.button-icon:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button-icon.button-danger:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.group-card-description {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.group-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.group-meta-item {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.group-card-footer {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.group-members-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--zindex-modal);
+  padding: var(--space-xl);
+  overflow-y: auto;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
