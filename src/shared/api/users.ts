@@ -17,7 +17,12 @@ export const UsersAPI = {
     return apiClient.get<UserPublic>(`${USERS_PREFIX}/username/${username}`)
   },
   list(params?: UserListParams) {
-    return apiClient.get<UserPublic[]>(`${USERS_PREFIX}/`, params)
+    const queryParams = params ? {
+      page: params.page?.toString(),
+      size: params.size?.toString(),
+      search: params.search,
+    } : undefined
+    return apiClient.get<UserPublic[]>(`${USERS_PREFIX}/`, queryParams)
   },
   search(search: string, page = 1, size = 20) {
     return apiClient.get<UserPublic[]>(`${USERS_PREFIX}/`, { search, page, size })

@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, type PropsWithChildren } from 'react'
 import type { User } from '@/shared/types'
 
-interface AuthContextType {
+export interface AuthContextType {
   user: User | null
   isAuthenticated: boolean
   isLoading: boolean

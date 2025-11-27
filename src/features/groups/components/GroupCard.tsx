@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useDeleteGroupMutation, useUpdateGroupMutation } from '@/features/groups/api'
+import { useDeleteGroupMutation } from '@/features/groups/api'
 import { GroupForm } from './GroupForm'
 import { GroupMembersManager } from './GroupMembersManager'
 import type { Group } from '@/shared/types'

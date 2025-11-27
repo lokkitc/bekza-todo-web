@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
 
 function AuthSetup() {
   const { logout, user } = useAuth()
-  const checkIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const checkIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
     // Настраиваем callback для автоматического logout при 401

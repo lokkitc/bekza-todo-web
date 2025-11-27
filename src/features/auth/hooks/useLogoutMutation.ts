@@ -10,14 +10,11 @@ export function useLogoutMutation() {
 
   return useMutation({
     mutationFn: async () => {
-      const refreshToken = localStorage.getItem('refresh_token')
-      if (refreshToken) {
-        try {
-          await AuthAPI.logout({ refresh_token: refreshToken })
-        } catch {
-          // Игнорируем ошибки при logout на сервере
-          // Все равно очищаем локальные данные
-        }
+      try {
+        await AuthAPI.logout()
+      } catch {
+        // Игнорируем ошибки при logout на сервере
+        // Все равно очищаем локальные данные
       }
     },
     onSuccess: () => {

@@ -1,4 +1,3 @@
-import { apiClient } from './httpClient'
 import type { AuthContextType } from '@/features/auth/context/AuthContext'
 
 let authContext: AuthContextType | null = null

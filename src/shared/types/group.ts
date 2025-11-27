@@ -1,4 +1,3 @@
-import type { PaginatedResponse } from './common'
 import type { Task } from './task'
 import type { UserPublic } from './user'
 
