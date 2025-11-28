@@ -1,7 +1,9 @@
 import './HomePage.css'
-// import { useAuth } from '@/features/auth/context/AuthContext'
 import { useUserStatsQuery } from '@/features/users/api/useUserStatsQuery'
 import { CircularProgress } from './components/CircularProgress'
+import { TaskStatusChart } from './components/TaskStatusChart'
+import { WeeklyProgressChart } from './components/WeeklyProgressChart'
+import { ActivityChart } from './components/ActivityChart'
 
 function getMotivationalMessage(stats: { completed_tasks: number; total_tasks: number; activity_score: number }) {
   const completionRate = stats.total_tasks > 0 ? (stats.completed_tasks / stats.total_tasks) * 100 : 0
@@ -67,8 +69,8 @@ export function HomePage() {
 
   return (
     <div className="home-page">
-      <div className="home-page-stats-grid">
-        {/* Основной прогресс завершенных задач */}
+      {/* Основной прогресс с круговым прогресс-баром */}
+      <div className="home-page-main-progress">
         <div className="home-stat-card home-stat-card-primary">
           <div className="home-stat-header">
             <h3>Общий прогресс</h3>
@@ -78,8 +80,8 @@ export function HomePage() {
             <CircularProgress
               value={statsData.completed_tasks}
               max={statsData.total_tasks}
-              size={140}
-              strokeWidth={10}
+              size={160}
+              strokeWidth={12}
               color="var(--color-accent)"
             />
             <div className="home-stat-numbers">
@@ -93,49 +95,45 @@ export function HomePage() {
             {motivationalMessage}
           </div>
         </div>
+      </div>
 
-        {/* Прогресс за неделю */}
-        <div className="home-stat-card">
+      {/* Диаграммы */}
+      <div className="home-page-charts-grid">
+        {/* Круговая диаграмма статусов задач */}
+        <div className="home-stat-card home-chart-card">
           <div className="home-stat-header">
-            <h3>Эта неделя</h3>
-            <p className="home-stat-description">Прогресс за 7 дней</p>
+            <h3>Распределение задач</h3>
+            <p className="home-stat-description">По статусам</p>
           </div>
-          <div className="home-stat-progress">
-            <CircularProgress
-              value={statsData.tasks_completed_this_week}
-              max={statsData.tasks_this_week || 1}
-              size={120}
-              strokeWidth={8}
-              color="#10b981"
-            />
-            <div className="home-stat-numbers">
-              <div className="home-stat-number-large">
-                {statsData.tasks_completed_this_week}
-              </div>
-              <div className="home-stat-number-label">из {statsData.tasks_this_week} задач</div>
-            </div>
-          </div>
+          <TaskStatusChart
+            pending={statsData.pending_tasks}
+            inProgress={statsData.in_progress_tasks}
+            completed={statsData.completed_tasks}
+          />
         </div>
 
-        {/* Активность */}
-        <div className="home-stat-card">
+        {/* Столбчатая диаграмма за неделю */}
+        <div className="home-stat-card home-chart-card">
           <div className="home-stat-header">
-            <h3>Активность</h3>
-            <p className="home-stat-description">Ваш уровень активности</p>
+            <h3>Прогресс за неделю</h3>
+            <p className="home-stat-description">Создано vs Выполнено</p>
           </div>
-          <div className="home-stat-progress">
-            <CircularProgress
-              value={statsData.activity_score}
-              max={100}
-              size={120}
-              strokeWidth={8}
-              color={activityInfo.color}
-            />
-            <div className="home-stat-numbers">
-              <div className="home-stat-number-large" style={{ color: activityInfo.color }}>
-                {statsData.activity_score}
-              </div>
-              <div className="home-stat-number-label">{activityInfo.level}</div>
+          <WeeklyProgressChart
+            tasksThisWeek={statsData.tasks_this_week}
+            tasksCompletedThisWeek={statsData.tasks_completed_this_week}
+          />
+        </div>
+
+        {/* Радиальная диаграмма активности */}
+        <div className="home-stat-card home-chart-card">
+          <div className="home-stat-header">
+            <h3>Уровень активности</h3>
+            <p className="home-stat-description">{activityInfo.level}</p>
+          </div>
+          <ActivityChart activityScore={statsData.activity_score} />
+          <div className="home-activity-info">
+            <div className="home-activity-score" style={{ color: activityInfo.color }}>
+              {statsData.activity_score}%
             </div>
           </div>
         </div>

@@ -267,11 +267,31 @@
   color: var(--color-text-muted);
 }
 
-/* Сетка статистики */
-.home-page-stats-grid {
+/* Основной прогресс */
+.home-page-main-progress {
+  margin-bottom: var(--space-xl);
+}
+
+/* Сетка диаграмм */
+.home-page-charts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.home-chart-card {
+  min-height: 350px;
+}
+
+.home-activity-info {
+  text-align: center;
+  margin-top: var(--space-sm);
+}
+
+.home-activity-score {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
 }
 
 .home-stat-card {
@@ -402,7 +422,7 @@
 
 /* Адаптивность */
 @media (max-width: 1199px) {
-  .home-page-stats-grid {
+  .home-page-charts-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-lg);
   }
@@ -423,9 +443,13 @@
     font-size: var(--font-size-xl);
   }
 
-  .home-page-stats-grid {
+  .home-page-charts-grid {
     grid-template-columns: 1fr;
     gap: var(--space-md);
+  }
+
+  .home-chart-card {
+    min-height: 280px;
   }
 
   .home-stat-card {
