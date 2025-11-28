@@ -24,12 +24,12 @@ export function ActivityChart({ activityScore }: ActivityChartProps) {
 
   return (
     <div className="chart-container">
-      <ResponsiveContainer width="100%" height={250}>
+      <ResponsiveContainer width="100%" height={200}>
         <RadialBarChart
           cx="50%"
           cy="50%"
-          innerRadius="50%"
-          outerRadius="85%"
+          innerRadius="40%"
+          outerRadius="75%"
           data={data}
           startAngle={90}
           endAngle={-270}

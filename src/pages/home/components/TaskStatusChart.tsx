@@ -30,7 +30,7 @@ export function TaskStatusChart({ pending, inProgress, completed }: TaskStatusCh
 
   return (
     <div className="chart-container">
-      <ResponsiveContainer width="100%" height={250}>
+      <ResponsiveContainer width="100%" height={200}>
         <PieChart>
           <Pie
             data={data}
@@ -38,7 +38,7 @@ export function TaskStatusChart({ pending, inProgress, completed }: TaskStatusCh
             cy="50%"
             labelLine={false}
             label={({ name, percent }) => `${name}: ${percent ? (percent * 100).toFixed(0) : 0}%`}
-            outerRadius={80}
+            outerRadius={60}
             fill="#8884d8"
             dataKey="value"
           >

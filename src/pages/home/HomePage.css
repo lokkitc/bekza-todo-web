@@ -275,13 +275,13 @@
 /* Сетка диаграмм */
 .home-page-charts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
   margin-bottom: var(--space-xl);
 }
 
 .home-chart-card {
-  min-height: 350px;
+  min-height: 280px;
 }
 
 .home-activity-info {
@@ -298,10 +298,10 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-md);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -316,8 +316,8 @@
 }
 
 .home-stat-header h3 {
-  margin: 0 0 var(--space-xs) 0;
-  font-size: var(--font-size-lg);
+  margin: 0 0 var(--space-xxs) 0;
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
 }
@@ -423,8 +423,12 @@
 /* Адаптивность */
 @media (max-width: 1199px) {
   .home-page-charts-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+  }
+  
+  .home-chart-card {
+    min-height: 240px;
   }
 
   .home-stat-progress {
@@ -449,7 +453,7 @@
   }
 
   .home-chart-card {
-    min-height: 280px;
+    min-height: 220px;
   }
 
   .home-stat-card {
