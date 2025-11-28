@@ -35,7 +35,6 @@ export function ActivityChart({ activityScore }: ActivityChartProps) {
           endAngle={-270}
         >
           <RadialBar
-            minAngle={15}
             background={{ fill: 'var(--color-surface-alt)' }}
             dataKey="value"
             cornerRadius={10}
