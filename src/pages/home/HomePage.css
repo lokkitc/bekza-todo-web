@@ -240,3 +240,67 @@
   }
 }
 
+/* Новая простая главная страница */
+.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: var(--space-xxl);
+}
+
+.home-page-content {
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.home-page-content h1 {
+  margin: 0;
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.home-page-greeting {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+}
+
+.home-page-description {
+  margin: 0;
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-normal);
+}
+
+.home-page-actions {
+  margin-top: var(--space-md);
+}
+
+.home-page-actions p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Адаптивность для новой главной страницы */
+@media (max-width: 767px) {
+  .home-page {
+    padding: var(--space-lg);
+    min-height: 50vh;
+  }
+
+  .home-page-content h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .home-page-greeting {
+    font-size: var(--font-size-md);
+  }
+}
+

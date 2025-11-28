@@ -32,7 +32,7 @@ export function RegisterForm() {
 
     try {
       await registerMutation.mutateAsync(formData)
-      navigate('/dashboard')
+      navigate('/')
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Ошибка регистрации'
       setError(message)
