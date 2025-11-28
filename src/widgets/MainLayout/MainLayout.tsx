@@ -7,8 +7,7 @@ import { useAuth } from '@/features/auth/context/AuthContext'
 import { getSafeImageUrl } from '@/shared/utils/imageUrl'
 
 const NAV_ITEMS = [
-  // { label: 'Главная', to: '/' },
-  // { label: 'Dashboard', to: '/dashboard' },
+  { label: 'Главная', to: '/' },
   { label: 'Задачи', to: '/todo' },
   { label: 'Профиль', to: '/profile' },
 ]
