@@ -1,5 +1,5 @@
 import './HomePage.css'
-import { useAuth } from '@/features/auth/context/AuthContext'
+// import { useAuth } from '@/features/auth/context/AuthContext'
 import { useUserStatsQuery } from '@/features/users/api/useUserStatsQuery'
 import { CircularProgress } from './components/CircularProgress'
 
@@ -38,7 +38,7 @@ function getActivityLevel(score: number) {
 }
 
 export function HomePage() {
-  const { user } = useAuth()
+  // const { user } = useAuth()
   const { data: stats, isLoading } = useUserStatsQuery()
 
   if (isLoading) {
@@ -67,13 +67,6 @@ export function HomePage() {
 
   return (
     <div className="home-page">
-      {/* <div className="home-page-header"> */}
-        {/* <div>
-          <h1>Добро пожаловать{user ? `, ${user.full_name || user.username || 'друг'}` : ''}!</h1>
-          <p className="home-page-subtitle">Ваша статистика продуктивности</p>
-        </div> */}
-      {/* </div> */}
-
       <div className="home-page-stats-grid">
         {/* Основной прогресс завершенных задач */}
         <div className="home-stat-card home-stat-card-primary">
