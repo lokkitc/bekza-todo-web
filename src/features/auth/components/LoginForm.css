@@ -113,3 +113,21 @@
   color: var(--color-accent);
 }
 
+/* Mobile styles (0px - 767px) */
+@media (max-width: 767px) {
+  .login-container {
+    padding: var(--space-lg);
+  }
+
+  .login-card {
+    padding: var(--space-lg);
+  }
+
+  .login-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .login-form {
+    gap: var(--space-md);
+  }
+}

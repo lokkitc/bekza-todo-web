@@ -114,4 +114,24 @@
   cursor: not-allowed;
 }
 
+/* Mobile styles (0px - 767px) */
+@media (max-width: 767px) {
+  .task-form {
+    padding: var(--space-md);
+    gap: var(--space-md);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
 

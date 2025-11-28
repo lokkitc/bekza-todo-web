@@ -234,7 +234,8 @@
   cursor: pointer;
 }
 
-@media (max-width: 1024px) {
+/* Tablet styles (768px - 1199px) */
+@media (max-width: 1199px) {
   .main-layout {
     grid-template-columns: var(--layout-sidebar-collapsed-width) 1fr;
   }
@@ -242,9 +243,27 @@
   .sidebar {
     padding: var(--space-xl) var(--space-md);
   }
+
+  .sidebar__brand > div {
+    display: none;
+  }
+
+  .sidebar__nav {
+    align-items: center;
+  }
+
+  .nav-link {
+    padding: var(--space-sm);
+    justify-content: center;
+  }
+
+  .nav-link span {
+    display: none;
+  }
 }
 
-@media (max-width: 768px) {
+/* Mobile styles (0px - 767px) */
+@media (max-width: 767px) {
   .main-layout {
     grid-template-columns: 1fr;
   }
@@ -254,21 +273,74 @@
     left: -100%;
     width: min(80vw, 300px);
     transition: transform 0.3s ease;
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-    height: 100%;
+    border-right: 1px solid var(--color-border);
+    border-bottom: none;
+    height: 100vh;
+    z-index: var(--zindex-sidebar);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
   }
 
   .main-layout.sidebar-open .sidebar {
     transform: translateX(100%);
   }
 
+  .main-layout.sidebar-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--zindex-sidebar) - 1);
+  }
+
   .sidebar-toggle {
     display: flex;
   }
 
+  .topbar-levels {
+    padding: 0 var(--space-md);
+  }
+
+  .topbar__title {
+    font-size: var(--font-size-md);
+  }
+
+  .topbar__actions {
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .theme-toggle {
+    font-size: var(--font-size-xs);
+    padding: var(--space-xxs) var(--space-sm);
+  }
+
+  .user-chip {
+    padding: var(--space-xxs) var(--space-sm);
+    gap: var(--space-xs);
+  }
+
+  .user-chip span {
+    display: none;
+  }
+
+  .user-chip-avatar,
+  .user-chip-avatar-placeholder {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  .user-chip button {
+    font-size: var(--font-size-xs);
+    padding: var(--space-xxs) var(--space-sm);
+  }
+
   .layout-content-inner {
-    padding: var(--space-xl);
+    padding: var(--space-md);
   }
 }
 

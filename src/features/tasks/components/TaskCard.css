@@ -182,4 +182,34 @@
   cursor: not-allowed;
 }
 
+/* Mobile styles (0px - 767px) */
+@media (max-width: 767px) {
+  .task-card {
+    padding: var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .task-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .task-card-actions {
+    align-self: flex-end;
+  }
+
+  .task-card-title {
+    font-size: var(--font-size-md);
+  }
+
+  .task-card-meta {
+    gap: var(--space-xs);
+  }
+
+  .task-meta-row {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+}
 

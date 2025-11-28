@@ -192,3 +192,59 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/* Tablet styles (768px - 1199px) */
+@media (max-width: 1199px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .kanban-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .api-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .api-row code {
+    grid-row: 1;
+  }
+}
+
+/* Mobile styles (0px - 767px) */
+@media (max-width: 767px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .card {
+    padding: var(--space-md);
+  }
+
+  .kanban-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .task-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .task-actions button {
+    width: 100%;
+  }
+
+  .api-row {
+    grid-template-columns: 1fr;
+  }
+
+  .api-row code {
+    word-break: break-all;
+  }
+}

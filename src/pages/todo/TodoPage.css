@@ -331,3 +331,115 @@
   }
 }
 
+/* Tablet styles (768px - 1199px) */
+@media (max-width: 1199px) {
+  .todo-page {
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* Mobile styles (0px - 767px) */
+@media (max-width: 767px) {
+  .todo-page {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .todo-sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    width: min(85vw, 320px);
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    z-index: var(--zindex-sidebar);
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    padding: var(--space-md);
+  }
+
+  .todo-sidebar.open {
+    transform: translateX(100%);
+  }
+
+  .todo-content-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .todo-content-header h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  .todo-content-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .todo-content-actions button {
+    flex: 1;
+  }
+
+  .group-members-modal {
+    padding: var(--space-md);
+  }
+
+  .sidebar-toggle-mobile {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    margin-bottom: var(--space-md);
+  }
+
+  .sidebar-close-mobile {
+    display: block;
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+    padding: var(--space-xs);
+    line-height: 1;
+  }
+
+  .todo-page {
+    position: relative;
+  }
+
+  .todo-page::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--zindex-sidebar) - 1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .todo-page.sidebar-open::after {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+/* Desktop - скрываем мобильные кнопки */
+@media (min-width: 768px) {
+  .sidebar-toggle-mobile,
+  .sidebar-close-mobile {
+    display: none;
+  }
+}
+

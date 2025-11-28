@@ -14,6 +14,7 @@ export function TodoPage() {
   const [isCreatingTask, setIsCreatingTask] = useState(false)
   const [editingGroupId, setEditingGroupId] = useState<string | null>(null)
   const [showMembersManager, setShowMembersManager] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const { data: groupsData, isLoading: groupsLoading, isError: groupsError } = useGroupsQuery()
   const deleteGroupMutation = useDeleteGroupMutation()
@@ -35,6 +36,7 @@ export function TodoPage() {
   const handleGroupSelect = (groupId: string) => {
     setSelectedGroupId(groupId)
     setIsCreatingTask(false)
+    setSidebarOpen(false) // Закрываем сайдбар на мобильных после выбора
   }
 
   const handleCreateGroup = () => {
@@ -82,19 +84,29 @@ export function TodoPage() {
   }
 
   return (
-    <div className="todo-page">
-      <div className="todo-sidebar">
+    <div className={`todo-page ${sidebarOpen ? 'sidebar-open' : ''}`}>
+      <div className={`todo-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <header className="todo-sidebar-header">
           <h2>Группы</h2>
-          <button
-            type="button"
-            onClick={handleCreateGroup}
-            className="button-icon-add"
-            disabled={isCreatingGroup}
-            title="Создать группу"
-          >
-            +
-          </button>
+          <div style={{ display: 'flex', gap: 'var(--space-xs)' }}>
+            <button
+              type="button"
+              className="sidebar-close-mobile"
+              onClick={() => setSidebarOpen(false)}
+              aria-label="Закрыть меню"
+            >
+              ✕
+            </button>
+            <button
+              type="button"
+              onClick={handleCreateGroup}
+              className="button-icon-add"
+              disabled={isCreatingGroup}
+              title="Создать группу"
+            >
+              +
+            </button>
+          </div>
         </header>
 
         {isCreatingGroup && (
@@ -182,6 +194,14 @@ export function TodoPage() {
         {selectedGroupId !== null ? (
           <>
             <header className="todo-content-header">
+              <button
+                type="button"
+                className="sidebar-toggle-mobile"
+                onClick={() => setSidebarOpen(true)}
+                aria-label="Открыть меню групп"
+              >
+                ☰ Группы
+              </button>
               <div>
                 <h1>
                   {selectedGroup?.color && (
@@ -252,7 +272,14 @@ export function TodoPage() {
           </>
         ) : (
           <div className="todo-empty-selection">
-            <p>Выберите группу слева, чтобы просмотреть задачи</p>
+            <button
+              type="button"
+              className="sidebar-toggle-mobile"
+              onClick={() => setSidebarOpen(true)}
+            >
+              ☰ Выберите группу
+            </button>
+            <p>Выберите группу, чтобы просмотреть задачи</p>
           </div>
         )}
       </div>
