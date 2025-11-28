@@ -8,9 +8,9 @@ export function useCreateGroupMutation() {
   return useMutation({
     mutationFn: (payload: GroupCreateRequest) => GroupsAPI.create(payload),
     onSuccess: (newGroup) => {
-      // Инвалидируем кеш и обновляем список
+      
       queryClient.invalidateQueries({ queryKey: ['groups'] })
-      // Оптимистично добавляем новую группу в кеш
+      
       queryClient.setQueryData<Group[]>(['groups'], (oldData = []) => {
         return [...oldData, newGroup]
       })

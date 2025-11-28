@@ -40,7 +40,7 @@ export class HttpClient {
 
     const token = this.options.getToken?.()
     
-    // Определяем, нужно ли отправлять как form-data
+    
     const isFormData = body instanceof URLSearchParams
     const contentType = isFormData ? 'application/x-www-form-urlencoded' : 'application/json'
     
@@ -55,18 +55,18 @@ export class HttpClient {
     })
 
     if (!response.ok) {
-      // Обработка 401 Unauthorized - автоматический logout
+      
       if (response.status === 401) {
-        // Вызываем callback для logout
+        
         this.options.onUnauthorized?.()
-        // Не бросаем ошибку для запросов, которые не требуют авторизации
-        // Но для защищенных endpoints это вызовет редирект через ProtectedRoute
+        
+        
       }
 
       let errorMessage = `Request failed with status ${response.status}`
       try {
         const errorData = await response.json()
-        // FastAPI возвращает ошибки в формате {detail: "..."} или {detail: [...]}
+        
         if (errorData.detail) {
           if (Array.isArray(errorData.detail)) {
             errorMessage = errorData.detail.map((err: any) => err.msg || JSON.stringify(err)).join(', ')
@@ -77,7 +77,7 @@ export class HttpClient {
           errorMessage = errorData.message
         }
       } catch {
-        // Если не JSON, пробуем текст
+        
         const errorText = await response.text()
         if (errorText) {
           errorMessage = errorText
@@ -175,8 +175,7 @@ export class HttpClient {
   }
 }
 
-// Создаем apiClient с базовой конфигурацией
-// onUnauthorized будет установлен в AppProviders
+
 let logoutCallback: (() => void) | undefined
 
 export function setupApiClientLogout(callback: () => void) {

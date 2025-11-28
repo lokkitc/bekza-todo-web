@@ -113,7 +113,7 @@
   color: var(--color-accent);
 }
 
-/* Mobile styles (0px - 767px) */
+
 @media (max-width: 767px) {
   .login-container {
     padding: var(--space-lg);

@@ -331,7 +331,7 @@
   }
 }
 
-/* Tablet styles (768px - 1199px) */
+
 @media (max-width: 1199px) {
   .todo-page {
     grid-template-columns: 240px 1fr;
@@ -339,7 +339,7 @@
   }
 }
 
-/* Mobile styles (0px - 767px) */
+
 @media (max-width: 767px) {
   .todo-page {
     grid-template-columns: 1fr;
@@ -435,7 +435,7 @@
   }
 }
 
-/* Desktop - скрываем мобильные кнопки */
+
 @media (min-width: 768px) {
   .sidebar-toggle-mobile,
   .sidebar-close-mobile {

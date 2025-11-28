@@ -24,14 +24,14 @@ export function GroupMembersManager({ groupId, onClose }: GroupMembersManagerPro
   const addMemberMutation = useAddGroupMemberMutation()
   const removeMemberMutation = useRemoveGroupMemberMutation()
 
-  // Поиск пользователей
+  
   const { data: searchResults = [], isLoading: searchLoading } = useQuery({
     queryKey: ['users', 'search', searchQuery],
     queryFn: () => UsersAPI.search(searchQuery, 1, 10),
     enabled: showAddMember && searchQuery.length >= 2,
   })
 
-  // Фильтруем уже добавленных участников из результатов поиска
+  
   const availableUsers = useMemo(() => {
     if (!group || !searchResults) return []
     const memberIds = new Set(group.members?.map((m) => m.id) || [])
@@ -43,7 +43,7 @@ export function GroupMembersManager({ groupId, onClose }: GroupMembersManagerPro
       await addMemberMutation.mutateAsync({ groupId, payload: { user_id: userId } })
       setSearchQuery('')
       setShowAddMember(false)
-      // Принудительно обновляем задачи, чтобы новый участник увидел их
+      
       queryClient.invalidateQueries({ queryKey: [TASKS_QUERY_KEY] })
     } catch (err) {
       alert(err instanceof Error ? err.message : 'Ошибка добавления участника')
@@ -93,7 +93,7 @@ export function GroupMembersManager({ groupId, onClose }: GroupMembersManagerPro
       </div>
 
       <div className="group-members-content">
-        {/* Кнопка добавления участника */}
+        {}
         {!showAddMember ? (
           <button
             type="button"
@@ -147,7 +147,7 @@ export function GroupMembersManager({ groupId, onClose }: GroupMembersManagerPro
           </div>
         )}
 
-        {/* Список участников */}
+        {}
         <div className="members-list">
           <h4>Участники ({members.length})</h4>
           {members.length === 0 ? (

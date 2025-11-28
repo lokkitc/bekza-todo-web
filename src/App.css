@@ -193,7 +193,7 @@
   cursor: not-allowed;
 }
 
-/* Tablet styles (768px - 1199px) */
+
 @media (max-width: 1199px) {
   .cards-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -215,7 +215,7 @@
   }
 }
 
-/* Mobile styles (0px - 767px) */
+
 @media (max-width: 767px) {
   .cards-grid {
     grid-template-columns: 1fr;

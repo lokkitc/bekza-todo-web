@@ -172,7 +172,7 @@
   min-height: 120px;
 }
 
-/* Tablet styles (768px - 1199px) */
+
 @media (max-width: 1199px) {
   .home-grid {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -188,7 +188,7 @@
   }
 }
 
-/* Mobile styles (0px - 767px) */
+
 @media (max-width: 767px) {
   .home-grid {
     grid-template-columns: 1fr;
@@ -240,12 +240,12 @@
   }
 }
 
-/* Главная страница со статистикой */
+
 .home-page {
   display: flex;
   flex-direction: column;
   gap: var(--space-xxl);
-  /* padding: var(--space-xxl); */
+  
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -267,12 +267,12 @@
   color: var(--color-text-muted);
 }
 
-/* Основной прогресс */
+
 .home-page-main-progress {
   margin-bottom: var(--space-xl);
 }
 
-/* Сетка диаграмм */
+
 .home-page-charts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -366,7 +366,7 @@
   margin-top: var(--space-sm);
 }
 
-/* Детальная статистика */
+
 .home-page-details-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -420,7 +420,7 @@
   font-weight: var(--font-weight-medium);
 }
 
-/* Адаптивность */
+
 @media (max-width: 1199px) {
   .home-page-charts-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

@@ -1,4 +1,4 @@
-// Константы для API URL
+
 export const API_URLS = {
   DEVELOPMENT: 'http://127.0.0.1:8000/api/v1',
   PRODUCTION: 'https://bekza-todo-api-866428924028.us-central1.run.app/api/v1',

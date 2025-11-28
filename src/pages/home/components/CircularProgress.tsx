@@ -35,7 +35,7 @@ export function CircularProgress({
         height={size}
         style={{ '--progress-color': progressColor } as React.CSSProperties}
       >
-        {/* Фоновый круг */}
+        {}
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -44,7 +44,7 @@ export function CircularProgress({
           stroke="var(--color-border)"
           strokeWidth={strokeWidth}
         />
-        {/* Прогресс */}
+        {}
         <circle
           cx={size / 2}
           cy={size / 2}

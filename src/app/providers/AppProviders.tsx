@@ -19,23 +19,23 @@ function AuthSetup() {
   const checkIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
-    // Настраиваем callback для автоматического logout при 401
+    
     setupApiClientLogout(() => {
       logout()
     })
   }, [logout])
 
   useEffect(() => {
-    // Периодическая проверка токена (каждые 30 секунд)
+    
     if (user) {
       checkIntervalRef.current = setInterval(() => {
         const token = localStorage.getItem('access_token')
         if (!token || isTokenExpired(token)) {
           logout()
         }
-      }, 30000) // Проверка каждые 30 секунд
+      }, 30000) 
     } else {
-      // Очищаем интервал, если пользователь вышел
+      
       if (checkIntervalRef.current) {
         clearInterval(checkIntervalRef.current)
         checkIntervalRef.current = null

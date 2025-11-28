@@ -44,10 +44,10 @@ export function GroupForm({ group, onSuccess, onCancel }: GroupFormProps) {
       return
     }
 
-    // Валидация цвета: должен быть либо пустым, либо соответствовать паттерну #RRGGBB или RRGGBB
+    
     let validatedColor: string | undefined = formData.color?.trim()
     if (validatedColor) {
-      // Убираем # если есть, потом добавляем обратно для единообразия
+      
       validatedColor = validatedColor.replace(/^#/, '')
       if (!/^[0-9A-Fa-f]{6}$/.test(validatedColor)) {
         setError('Цвет должен быть в формате hex (например: #6366f1 или 6366f1)')
@@ -79,7 +79,7 @@ export function GroupForm({ group, onSuccess, onCancel }: GroupFormProps) {
       let message = 'Ошибка сохранения группы'
       if (err instanceof Error) {
         message = err.message
-        // Если это ошибка валидации от FastAPI, показываем более понятное сообщение
+        
         if (message.includes('422') || message.includes('validation')) {
           message = 'Проверьте правильность заполнения полей. ' + message
         }

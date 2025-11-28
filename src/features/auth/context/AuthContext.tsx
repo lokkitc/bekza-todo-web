@@ -21,16 +21,16 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Восстанавливаем состояние из localStorage при монтировании
+    
     const storedUser = localStorage.getItem(USER_KEY)
     const storedToken = localStorage.getItem(ACCESS_TOKEN_KEY)
 
     if (storedUser && storedToken) {
       try {
-        // Проверяем, не истек ли токен
+        
         const isExpired = checkTokenExpiration(storedToken)
         if (isExpired) {
-          // Токен истек, очищаем все
+          
           localStorage.removeItem(USER_KEY)
           localStorage.removeItem(ACCESS_TOKEN_KEY)
           localStorage.removeItem(REFRESH_TOKEN_KEY)
@@ -39,14 +39,14 @@ export function AuthProvider({ children }: PropsWithChildren) {
           setUser(JSON.parse(storedUser))
         }
       } catch {
-        // Если не удалось распарсить, очищаем
+        
         localStorage.removeItem(USER_KEY)
         localStorage.removeItem(ACCESS_TOKEN_KEY)
         localStorage.removeItem(REFRESH_TOKEN_KEY)
         setUser(null)
       }
     } else {
-      // Нет токена или пользователя, очищаем на всякий случай
+      
       localStorage.removeItem(USER_KEY)
       localStorage.removeItem(ACCESS_TOKEN_KEY)
       localStorage.removeItem(REFRESH_TOKEN_KEY)
@@ -56,7 +56,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
     setIsLoading(false)
   }, [])
 
-  // Функция проверки истечения токена
+  
   function checkTokenExpiration(token: string): boolean {
     try {
       const parts = token.split('.')
@@ -65,10 +65,10 @@ export function AuthProvider({ children }: PropsWithChildren) {
       const payload = JSON.parse(atob(parts[1]))
       const exp = payload.exp
 
-      if (!exp) return false // Если нет exp, считаем что токен валиден
+      if (!exp) return false 
 
       const now = Math.floor(Date.now() / 1000)
-      return exp < now - 5 // Запас в 5 секунд
+      return exp < now - 5 
     } catch {
       return true
     }
@@ -88,8 +88,8 @@ export function AuthProvider({ children }: PropsWithChildren) {
     localStorage.removeItem(ACCESS_TOKEN_KEY)
     localStorage.removeItem(REFRESH_TOKEN_KEY)
     localStorage.removeItem(USER_KEY)
-    // Очищаем все данные из localStorage, связанные с пользователем
-    // Очистка React Query кэша будет выполнена через useLogoutMutation
+    
+    
   }
 
   const updateUser = (userData: User) => {

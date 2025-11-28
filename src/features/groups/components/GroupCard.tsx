@@ -96,7 +96,7 @@ export function GroupCard({ group }: GroupCardProps) {
         <div
           className="group-members-modal"
           onClick={(e) => {
-            // Закрываем модальное окно при клике на фон
+            
             if (e.target === e.currentTarget) {
               setShowMembers(false)
             }

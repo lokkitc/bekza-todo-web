@@ -10,4 +10,3 @@ export function useUserByUsernameQuery(username: string) {
   })
 }
 
-

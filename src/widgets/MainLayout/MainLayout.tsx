@@ -26,12 +26,12 @@ export function MainLayout() {
     setSidebarOpen(false)
   }
 
-  // Получаем безопасный URL аватара
+  
   const safeAvatarUrl = getSafeImageUrl(user?.avatar_url)
 
   const [avatarError, setAvatarError] = useState(false)
 
-  // Сбрасываем ошибку при изменении URL аватара
+  
   useEffect(() => {
     setAvatarError(false)
   }, [user?.avatar_url])
@@ -40,10 +40,10 @@ export function MainLayout() {
     <div className={`main-layout ${sidebarOpen ? 'sidebar-open' : ''}`}>
       <aside className="sidebar">
         <div className="sidebar__brand">
-          <div className="sidebar__logo">BT</div>
+          <div className="sidebar__logo"><img src="/logo.png" alt="logo" /></div>
           <div>
             <p>Bekza Todo</p>
-            <small>Design System</small>
+            <small>Design System</small>  
           </div>
         </div>
         <nav className="sidebar__nav">

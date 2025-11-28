@@ -34,7 +34,7 @@ const applyStaticVariables = () => {
   if (!isBrowser) return
   const root = document.documentElement
 
-  // Fonts
+  
   root.style.setProperty('--font-family-base', FONTS.family.base)
   root.style.setProperty('--font-family-mono', FONTS.family.mono)
   Object.entries(FONTS.size).forEach(([key, size]) => {
@@ -49,27 +49,27 @@ const applyStaticVariables = () => {
     root.style.setProperty(`--line-height-${camelToKebab(key)}`, value.toString())
   })
 
-  // Spacing
+  
   Object.entries(SPACING).forEach(([token, value]) => {
     root.style.setProperty(`--space-${camelToKebab(token)}`, `${value}px`)
   })
 
-  // Radius
+  
   Object.entries(RADIUS).forEach(([token, value]) => {
     root.style.setProperty(`--radius-${camelToKebab(token)}`, `${value}px`)
   })
 
-  // Breakpoints
+  
   Object.entries(BREAKPOINTS).forEach(([token, value]) => {
     root.style.setProperty(`--breakpoint-${camelToKebab(token)}`, `${value}px`)
   })
 
-  // Layout
+  
   Object.entries(LAYOUT).forEach(([token, value]) => {
     root.style.setProperty(`--layout-${camelToKebab(token)}`, `${value}px`)
   })
 
-  // Z-index
+  
   Object.entries(Z_INDEX).forEach(([token, value]) => {
     root.style.setProperty(`--zindex-${camelToKebab(token)}`, `${value}`)
   })

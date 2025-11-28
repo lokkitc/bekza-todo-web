@@ -9,10 +9,10 @@ export function useRemoveGroupMemberMutation() {
     mutationFn: ({ groupId, userId }: { groupId: string; userId: string }) =>
       GroupsAPI.removeMember(groupId, userId),
     onSuccess: (_, variables) => {
-      // Инвалидируем кэш групп
+      
       queryClient.invalidateQueries({ queryKey: ['groups', variables.groupId] })
       queryClient.invalidateQueries({ queryKey: ['groups'] })
-      // Инвалидируем кэш задач, чтобы удаленный участник больше не видел задачи группы
+      
       queryClient.invalidateQueries({ queryKey: [TASKS_QUERY_KEY] })
     },
   })

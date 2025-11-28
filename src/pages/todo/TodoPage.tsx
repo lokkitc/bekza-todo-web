@@ -18,14 +18,14 @@ export function TodoPage() {
 
   const { data: groupsData, isLoading: groupsLoading, isError: groupsError } = useGroupsQuery()
   const deleteGroupMutation = useDeleteGroupMutation()
-  // Загружаем все задачи, фильтрацию делаем на клиенте
+  
   const { data: tasksData, isLoading: tasksLoading } = useTasksQuery()
 
   const groups = groupsData || []
   const allTasks = tasksData?.items || []
   const selectedGroup = groups.find((g) => g.id === selectedGroupId)
   
-  // Фильтруем задачи: если выбрана группа, показываем её задачи, иначе - задачи без группы
+  
   const tasks =
     selectedGroupId === 'ungrouped'
       ? allTasks.filter((task) => !task.group_id)
@@ -36,7 +36,7 @@ export function TodoPage() {
   const handleGroupSelect = (groupId: string) => {
     setSelectedGroupId(groupId)
     setIsCreatingTask(false)
-    setSidebarOpen(false) // Закрываем сайдбар на мобильных после выбора
+    setSidebarOpen(false) 
   }
 
   const handleCreateGroup = () => {
@@ -284,7 +284,7 @@ export function TodoPage() {
         )}
       </div>
 
-      {/* Модальное окно управления участниками */}
+      {}
       {showMembersManager && selectedGroupId && selectedGroupId !== 'ungrouped' && (
         <div
           className="group-members-modal"

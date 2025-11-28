@@ -83,7 +83,7 @@ export function TaskGroupsBoard() {
     <section className="task-groups-board">
       <header className="task-groups-header">
         <div>
-          {/* <p className="eyebrow">Задачи</p> */}
+          {}
           <h2 style={{ margin: 0 }}>Группы задач</h2>
           {isFetching && <p className="group-meta">Обновляем...</p>}
         </div>

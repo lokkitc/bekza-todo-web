@@ -17,7 +17,7 @@
   padding: var(--space-md);
 }
 
-/* Стили для recharts */
+
 .recharts-wrapper {
   font-family: var(--font-family-base);
 }
@@ -56,7 +56,7 @@
   stroke: var(--color-border) !important;
 }
 
-/* Адаптивность */
+
 @media (max-width: 767px) {
   .chart-container {
     height: 200px;

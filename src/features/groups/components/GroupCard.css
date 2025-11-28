@@ -121,7 +121,7 @@
   }
 }
 
-/* Mobile styles (0px - 767px) */
+
 @media (max-width: 767px) {
   .group-card {
     padding: var(--space-md);

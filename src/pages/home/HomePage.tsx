@@ -43,7 +43,7 @@ function getActivityLevel(score: number) {
 }
 
 export function HomePage() {
-  // const { user } = useAuth()
+  
   const { data: stats, isLoading } = useUserStatsQuery()
 
   if (isLoading) {
@@ -72,7 +72,7 @@ export function HomePage() {
 
   return (
     <div className="home-page">
-      {/* Основной прогресс с круговым прогресс-баром */}
+      {}
       <div className="home-page-main-progress">
         <div className="home-stat-card home-stat-card-primary">
           <div className="home-stat-header">
@@ -100,9 +100,9 @@ export function HomePage() {
         </div>
       </div>
 
-      {/* Диаграммы */}
+      {}
       <div className="home-page-charts-grid">
-        {/* Круговая диаграмма статусов задач */}
+        {}
         <div className="home-stat-card home-chart-card">
           <div className="home-stat-header">
             <h3>Распределение задач</h3>
@@ -115,7 +115,7 @@ export function HomePage() {
           />
         </div>
 
-        {/* Диаграмма выполнения */}
+        {}
         <div className="home-stat-card home-chart-card">
           <div className="home-stat-header">
             <h3>Выполнение</h3>
@@ -127,7 +127,7 @@ export function HomePage() {
           />
         </div>
 
-        {/* Столбчатая диаграмма за неделю */}
+        {}
         <div className="home-stat-card home-chart-card">
           <div className="home-stat-header">
             <h3>Прогресс за неделю</h3>
@@ -139,7 +139,7 @@ export function HomePage() {
           />
         </div>
 
-        {/* Эффективность недели */}
+        {}
         <div className="home-stat-card home-chart-card">
           <div className="home-stat-header">
             <h3>Эффективность</h3>
@@ -151,7 +151,7 @@ export function HomePage() {
           />
         </div>
 
-        {/* Обзор задач */}
+        {}
         <div className="home-stat-card home-chart-card">
           <div className="home-stat-header">
             <h3>Обзор задач</h3>
@@ -164,7 +164,7 @@ export function HomePage() {
           />
         </div>
 
-        {/* Радиальная диаграмма активности */}
+        {}
         <div className="home-stat-card home-chart-card">
           <div className="home-stat-header">
             <h3>Уровень активности</h3>
@@ -179,7 +179,7 @@ export function HomePage() {
         </div>
       </div>
 
-      {/* Статистика по статусам */}
+      {}
       <div className="home-page-details-grid">
         <div className="home-detail-card">
           <div className="home-detail-icon" style={{ backgroundColor: 'rgba(250, 204, 21, 0.15)', color: '#ca8a04' }}>

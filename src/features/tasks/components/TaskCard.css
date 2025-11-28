@@ -182,7 +182,7 @@
   cursor: not-allowed;
 }
 
-/* Mobile styles (0px - 767px) */
+
 @media (max-width: 767px) {
   .task-card {
     padding: var(--space-md);

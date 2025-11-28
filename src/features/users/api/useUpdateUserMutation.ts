@@ -10,9 +10,9 @@ export function useUpdateUserMutation() {
   return useMutation({
     mutationFn: (payload: UserUpdateRequest) => UsersAPI.updateMe(payload),
     onSuccess: (data) => {
-      // Обновляем пользователя в AuthContext и localStorage
+      
       updateUser(data)
-      // Инвалидируем кэш React Query
+      
       queryClient.invalidateQueries({ queryKey: ['user'] })
     },
   })

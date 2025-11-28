@@ -13,23 +13,23 @@ export function useLogoutMutation() {
       try {
         await AuthAPI.logout()
       } catch {
-        // Игнорируем ошибки при logout на сервере
-        // Все равно очищаем локальные данные
+        
+        
       }
     },
     onSuccess: () => {
-      // Очищаем все кэши React Query
+      
       queryClient.clear()
-      // Выполняем logout
+      
       logout()
-      // Перенаправляем на страницу логина
+      
       navigate('/login', { replace: true })
     },
     onError: () => {
-      // Даже если сервер вернул ошибку, очищаем локальное состояние
+      
       queryClient.clear()
       logout()
-      // Перенаправляем на страницу логина
+      
       navigate('/login', { replace: true })
     },
   })

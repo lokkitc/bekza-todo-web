@@ -11,8 +11,8 @@ export function useLoginMutation() {
       return AuthAPI.login(payload)
     },
     onSuccess: (data) => {
-      // Сохраняем токены и пользователя через контекст
-      // FastAPI возвращает token, а не tokens
+      
+      
       login(data.user, data.token.access_token, data.token.refresh_token)
     },
   })

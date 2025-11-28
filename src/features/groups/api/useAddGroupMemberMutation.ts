@@ -10,10 +10,10 @@ export function useAddGroupMemberMutation() {
     mutationFn: ({ groupId, payload }: { groupId: string; payload: GroupMemberPayload }) =>
       GroupsAPI.addMember(groupId, payload),
     onSuccess: (_, variables) => {
-      // Инвалидируем кэш групп
+      
       queryClient.invalidateQueries({ queryKey: ['groups', variables.groupId] })
       queryClient.invalidateQueries({ queryKey: ['groups'] })
-      // Инвалидируем кэш задач, чтобы новый участник увидел задачи группы
+      
       queryClient.invalidateQueries({ queryKey: [TASKS_QUERY_KEY] })
     },
   })

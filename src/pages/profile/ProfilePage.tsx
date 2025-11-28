@@ -90,13 +90,13 @@ export function ProfilePage() {
     const file = e.target.files?.[0]
     if (!file) return
 
-    // Валидация типа файла
+    
     if (!file.type.startsWith('image/')) {
       setError('Пожалуйста, выберите изображение')
       return
     }
 
-    // Валидация размера (5MB)
+    
     if (file.size > 5 * 1024 * 1024) {
       setError('Размер файла не должен превышать 5MB')
       return
@@ -108,7 +108,7 @@ export function ProfilePage() {
     try {
       const result = await UploadAPI.uploadAvatar(file)
       setFormData((prev) => ({ ...prev, avatar_url: result.avatar_url }))
-      // Обновляем пользователя в контексте
+      
       if (currentUser) {
         updateMutation.mutate({ avatar_url: result.avatar_url })
       }
@@ -127,13 +127,13 @@ export function ProfilePage() {
     const file = e.target.files?.[0]
     if (!file) return
 
-    // Валидация типа файла
+    
     if (!file.type.startsWith('image/')) {
       setError('Пожалуйста, выберите изображение')
       return
     }
 
-    // Валидация размера (5MB)
+    
     if (file.size > 5 * 1024 * 1024) {
       setError('Размер файла не должен превышать 5MB')
       return
@@ -145,7 +145,7 @@ export function ProfilePage() {
     try {
       const result = await UploadAPI.uploadHeaderBackground(file)
       setFormData((prev) => ({ ...prev, header_background_url: result.header_background_url }))
-      // Обновляем пользователя в контексте
+      
       if (currentUser) {
         updateMutation.mutate({ header_background_url: result.header_background_url })
       }
@@ -208,7 +208,7 @@ export function ProfilePage() {
   return (
     <div className="profile-page">
       <div className="profile-card">
-        {/* Header Background */}
+        {}
         {safeHeaderBgUrl && (
           <div
             className="profile-header-bg"
@@ -217,7 +217,7 @@ export function ProfilePage() {
         )}
 
         <div className="profile-content">
-          {/* Avatar */}
+          {}
           <div className="profile-avatar-section">
             {safeAvatarUrl ? (
               <img
@@ -225,7 +225,7 @@ export function ProfilePage() {
                 alt={currentUser.username}
                 className="profile-avatar"
                 onError={(e) => {
-                  // Если изображение не загрузилось, показываем placeholder
+                  
                   const target = e.target as HTMLImageElement
                   target.style.display = 'none'
                   const placeholder = target.nextElementSibling as HTMLElement
@@ -415,14 +415,14 @@ export function ProfilePage() {
           </form>
         ) : (
           <>
-            {/* Bio */}
+            {}
             {currentUser.bio && (
               <div className="profile-bio">
                 <p>{currentUser.bio}</p>
               </div>
             )}
 
-            {/* Stats */}
+            {}
             {displayStats && (
               <div className="profile-stats">
                 <h2>Статистика</h2>
@@ -463,7 +463,7 @@ export function ProfilePage() {
               </div>
             )}
 
-            {/* Profile Info */}
+            {}
             <div className="profile-info">
               <h2>Информация</h2>
               <div className="info-row">

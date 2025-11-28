@@ -111,7 +111,7 @@
   text-decoration: underline;
 }
 
-/* Mobile styles (0px - 767px) */
+
 @media (max-width: 767px) {
   .auth-container {
     padding: var(--space-lg);

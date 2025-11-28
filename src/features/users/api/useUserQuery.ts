@@ -11,7 +11,7 @@ export function useUserQuery() {
     queryFn: () => UsersAPI.getMe(),
   })
 
-  // Синхронизируем данные пользователя с AuthContext при загрузке
+  
   useEffect(() => {
     if (query.data) {
       updateUser(query.data)

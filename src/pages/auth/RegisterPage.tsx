@@ -4,4 +4,3 @@ export function RegisterPage() {
   return <RegisterForm />
 }
 
-
