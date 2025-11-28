@@ -67,12 +67,12 @@ export function HomePage() {
 
   return (
     <div className="home-page">
-      <div className="home-page-header">
-        <div>
+      {/* <div className="home-page-header"> */}
+        {/* <div>
           <h1>Добро пожаловать{user ? `, ${user.full_name || user.username || 'друг'}` : ''}!</h1>
           <p className="home-page-subtitle">Ваша статистика продуктивности</p>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       <div className="home-page-stats-grid">
         {/* Основной прогресс завершенных задач */}
