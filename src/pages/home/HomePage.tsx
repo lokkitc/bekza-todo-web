@@ -4,6 +4,9 @@ import { CircularProgress } from './components/CircularProgress'
 import { TaskStatusChart } from './components/TaskStatusChart'
 import { WeeklyProgressChart } from './components/WeeklyProgressChart'
 import { ActivityChart } from './components/ActivityChart'
+import { CompletionRateChart } from './components/CompletionRateChart'
+import { WeekEfficiencyChart } from './components/WeekEfficiencyChart'
+import { TasksOverviewChart } from './components/TasksOverviewChart'
 
 function getMotivationalMessage(stats: { completed_tasks: number; total_tasks: number; activity_score: number }) {
   const completionRate = stats.total_tasks > 0 ? (stats.completed_tasks / stats.total_tasks) * 100 : 0
@@ -112,6 +115,18 @@ export function HomePage() {
           />
         </div>
 
+        {/* Диаграмма выполнения */}
+        <div className="home-stat-card home-chart-card">
+          <div className="home-stat-header">
+            <h3>Выполнение</h3>
+            <p className="home-stat-description">Выполнено vs Не выполнено</p>
+          </div>
+          <CompletionRateChart
+            completed={statsData.completed_tasks}
+            notCompleted={statsData.pending_tasks + statsData.in_progress_tasks}
+          />
+        </div>
+
         {/* Столбчатая диаграмма за неделю */}
         <div className="home-stat-card home-chart-card">
           <div className="home-stat-header">
@@ -121,6 +136,31 @@ export function HomePage() {
           <WeeklyProgressChart
             tasksThisWeek={statsData.tasks_this_week}
             tasksCompletedThisWeek={statsData.tasks_completed_this_week}
+          />
+        </div>
+
+        {/* Эффективность недели */}
+        <div className="home-stat-card home-chart-card">
+          <div className="home-stat-header">
+            <h3>Эффективность</h3>
+            <p className="home-stat-description">Процент выполнения за неделю</p>
+          </div>
+          <WeekEfficiencyChart
+            tasksThisWeek={statsData.tasks_this_week}
+            tasksCompletedThisWeek={statsData.tasks_completed_this_week}
+          />
+        </div>
+
+        {/* Обзор задач */}
+        <div className="home-stat-card home-chart-card">
+          <div className="home-stat-header">
+            <h3>Обзор задач</h3>
+            <p className="home-stat-description">Все статусы</p>
+          </div>
+          <TasksOverviewChart
+            pending={statsData.pending_tasks}
+            inProgress={statsData.in_progress_tasks}
+            completed={statsData.completed_tasks}
           />
         </div>
 
